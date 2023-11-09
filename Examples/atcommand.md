@@ -11,16 +11,15 @@ In these examples, the ATC (custom AT-COMMAND) are shown
 # SHT temperature and humidity sensor
 
 1. Activate the SHT sensor, type :
----        
-ATC+SHT
----            
+      
+    ATC+SHT
+           
 It returns : 
 
     ATC+SHT=1
     OK
     
 2. Check temperature, type :
-
             
     ATC+TEMP=?
             
@@ -30,7 +29,6 @@ It returns a result in Celsius degree:
      OK
 
 3. Check Humidity, type :
-
             
     ATC+HUM=?
             
@@ -43,7 +41,6 @@ It returns a result in percent of humidity :
 
 1. Activate the KX023 sensor, type :
 
-
     ATC+KX023
 
 It returns : 
@@ -53,7 +50,6 @@ It returns :
     
 2. Check the accelerometer value on x-axis, type :
 
-
     ATC+AX=?
  
 It returns the result in G unit : 
@@ -62,7 +58,6 @@ It returns the result in G unit :
     OK
 
 3. Check the accelerometer value on y-axis, type :
-
  
     ATC+AY=?
  
@@ -72,7 +67,6 @@ It returns the result in G unit :
     OK
 
 4. Check the accelerometer value on z-axis, type :
-
 
     ATC+AZ=?
 
@@ -88,7 +82,6 @@ It returns the result in G unit :
 
 2. Activate the GNSS LDO, it power-on the L76F module, type :
 
-
     ATC+GPSON=1
 
 It returns : 
@@ -99,75 +92,65 @@ It returns :
    
 4. Read the GPS value, type
 
-
     ATC+GPS
 
 It returns : 
 
     ATC+GPS=1
-    OK
     
-5. Read the number of satellites in view, type : 
-
+5. Read the number of satellites in view, type :
 
     ATC+GPSSAT=?
 
 It returns the number of satellites available : 
 
     ATC+GPSSAT=x
-    OK
 
 6. Read the latitude, type : 
-
 
     ATC+GPSLAT=?
 
 It returns the latitude in degreees : 
 
     ATC+GPSLAT=xx.yyyy
-    OK
+    
 
-7. Read the Longitude, type : 
-
+7. Read the Longitude, type :
 
     ATC+GPSLON=?
 
 It returns the longitude in degrees : 
 
     ATC+GPSLON=xx.yyyy
-    OK
+    
 
 8. Read the Altitude, type : 
-
 
     ATC+GPSALT=?
 
 It returns the altitude in meter : 
 
     ATC+GPSALT=xx.yyy
-    OK
+    
 
 9. Read the Time, type : 
-
 
     ATC+GPSTIME=?
 
 It returns the time in second in Epoch format : 
 
     ATC+GPSTIME=xxxxxxxxxx
-    OK
+    
 
 # Battery Voltage
 
 1. Request battery voltage level, type :
-
 
     ATC+BAT=?
 
 It returns the battery voltage level in millivolt : 
 
     ATC+BAT=xxxx
-    OK
     
 
 
