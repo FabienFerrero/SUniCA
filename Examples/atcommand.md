@@ -16,22 +16,22 @@ In these examples, the ATC (custom AT-COMMAND) are shown
 ATC+SHT
 ```           
 It returns :
-*ATC+SHT=1
+* ATC+SHT=1
     
     
 2. Check temperature, type :
 ```            
-ATC+TEMP=?
+ATC+TEMP
 ```            
 It returns a result in Celsius degree: 
 * ATC+TEMP=xx.yy degree C     
 
 3. Check Humidity, type :
 ```            
-ATC+HUM=?
+ATC+HUM
 ```             
 It returns a result in percent of humidity :
-    ATC+HUM=xx%
+* ATC+HUM=xx%
     
 
 # KX023 Accelerometer sensor
@@ -43,35 +43,36 @@ ATC+KX023
 
 It returns : 
 
-    ATC+KX023=1
+* ATC+KX023=1
 
     
 2. Check the accelerometer value on x-axis, type :
 ```	
-ATC+AX=?
+ATC+AX
 ```	 
 It returns the result in G unit : 
 
-    ATC+AX=-x.yy
+* ATC+AX=-x.yy
     
 
 3. Check the accelerometer value on y-axis, type :
 ```	 
-ATC+AY=?
+ATC+AY
 ```	
 It returns the result in G unit : 
 
-    ATC+AY=x.yy
-    OK
+* ATC+AY=x.yy
+
 
 4. Check the accelerometer value on z-axis, type :
 ```	
-ATC+AZ=?
+ATC+AZ
 ```	
 It returns the result in G unit : 
 
-    ATC+AZ=x.yy
-    OK
+* ATC+AZ=x.yy
+
+  
 
 # L76F GNSS sensor
 
@@ -84,7 +85,7 @@ It returns the result in G unit :
 ```	
 It returns : 
 
-    OK
+* OK
 
 3. The GNSS module will need up to 1 minute to obtain a position. If LED D1 (close to L76F) is blinking, the module get a fix.
    
@@ -94,25 +95,25 @@ ATC+LOG=1
 ```	
 It returns : 
 
-    GNSS log
+* GNSS log from Module
     
 5. Read the number of satellites in view, type :
 
 ```	
-ATC+GPSSAT=?
+ATC+GPSSAT
 ```	
 It returns the number of satellites available : 
-```	
-ATC+GPSSAT=x
-```	
+
+* ATC+GPSSAT=x
+	
 6. Read the latitude, type : 
 ```	
 ATC+GPSLAT=?
 ```	
 It returns the latitude in degreees : 
-```	
-ATC+GPSLAT=xx.yyyy
-```	
+	
+* ATC+GPSLAT=xx.yyyy
+	
 
 7. Read the Longitude, type :
 ```	
@@ -120,7 +121,7 @@ ATC+GPSLON=?
 ```	
 It returns the longitude in degrees : 
 
-    ATC+GPSLON=xx.yyyy
+* ATC+GPSLON=xx.yyyy
     
 
 8. Read the Altitude, type : 
@@ -129,7 +130,7 @@ ATC+GPSALT=?
 ```	
 It returns the altitude in meter : 
 
-    ATC+GPSALT=xx.yyy
+* ATC+GPSALT=xx.yyy
     
 
 9. Read the Time, type : 
@@ -138,7 +139,7 @@ ATC+GPSTIME=?
 ```	
 It returns the time in second in Epoch format : 
 
-    ATC+GPSTIME=xxxxxxxxxx
+* ATC+GPSTIME=xxxxxxxxxx
     
 
 # Battery Voltage
@@ -149,7 +150,7 @@ ATC+BAT=?
 ```	
 It returns the battery voltage level in millivolt : 
 
-    ATC+BAT=xxxx
+* ATC+BAT=xxxx
     
 
 
