@@ -108,7 +108,7 @@ It returns the number of satellites available :
 	
 6. Read the latitude, type : 
 ```	
-ATC+GPSLAT=?
+ATC+GPSLAT
 ```	
 It returns the latitude in degreees : 
 	
@@ -117,7 +117,7 @@ It returns the latitude in degreees :
 
 7. Read the Longitude, type :
 ```	
-ATC+GPSLON=?
+ATC+GPSLON
 ```	
 It returns the longitude in degrees : 
 
@@ -126,7 +126,7 @@ It returns the longitude in degrees :
 
 8. Read the Altitude, type : 
 ```	
-ATC+GPSALT=?
+ATC+GPSALT
 ```	
 It returns the altitude in meter : 
 
@@ -135,7 +135,7 @@ It returns the altitude in meter :
 
 9. Read the Time, type : 
 ```	
-ATC+GPSTIME=?
+ATC+GPSTIME
 ```	
 It returns the time in second in Epoch format : 
 
@@ -146,7 +146,7 @@ It returns the time in second in Epoch format :
 
 1. Request battery voltage level, type :
 ```	
-ATC+BAT=?
+ATC+BAT
 ```	
 It returns the battery voltage level in millivolt : 
 
