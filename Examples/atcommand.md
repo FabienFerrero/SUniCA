@@ -13,36 +13,33 @@ In these examples, the ATC (custom AT-COMMAND) are shown
 1. Activate the SHT sensor, type :
       
 ```	  
-	ATC+SHT
+ATC+SHT
 ```           
-It returns : 
-
+It returns :
 	ATC+SHT=1
     
     
 2. Check temperature, type :
 ```            
-    ATC+TEMP=?
+ATC+TEMP=?
 ```            
 It returns a result in Celsius degree: 
-
-     ATC+TEMP=xx.yy degree C
-     
+     ATC+TEMP=xx.yy degree C     
 
 3. Check Humidity, type :
-            
-    ATC+HUM=?
-            
+```            
+ATC+HUM=?
+```             
 It returns a result in percent of humidity :
-
     ATC+HUM=xx%
-    OK
+    
 
 # KX023 Accelerometer sensor
 
 1. Activate the KX023 sensor, type :
-
-    ATC+KX023
+``` 
+ATC+KX023
+``` 
 
 It returns : 
 
