@@ -12,12 +12,12 @@ In these examples, the ATC (custom AT-COMMAND) are shown
 
 1. Activate the SHT sensor, type :
       
-    ATC+SHT
+	ATC+SHT
            
 It returns : 
 
-    ATC+SHT=1
-    OK
+	ATC+SHT=1
+    
     
 2. Check temperature, type :
             
@@ -26,7 +26,7 @@ It returns :
 It returns a result in Celsius degree: 
 
      ATC+TEMP=xx.yy degree C
-     OK
+     
 
 3. Check Humidity, type :
             
