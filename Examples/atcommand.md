@@ -24,14 +24,14 @@ It returns :
 ATC+TEMP
 ```            
 It returns a result in Celsius degree: 
-* ATC+TEMP=xx.yy degree C     
+* ATC+TEMP=xx.yy      
 
 3. Check Humidity, type :
 ```            
 ATC+HUM
 ```             
 It returns a result in percent of humidity :
-* ATC+HUM=xx%
+* ATC+HUM=xx
     
 
 # KX023 Accelerometer sensor
