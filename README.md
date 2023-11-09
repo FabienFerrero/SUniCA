@@ -22,11 +22,11 @@ The different features can be accessed using AT-COMMAND.
 
 The board is fabricated by RFThings.
 
-<img src="https://github.com/FabienFerrero/SUCA/blob/main/Document/pic/bot.jpg">
+<img src="https://github.com/FabienFerrero/SUniCA/blob/main/Document/pic/bot.jpg">
 
 # Wiring
 
-<img src="https://github.com/FabienFerrero/SUCA/blob/main/Document/pic/bloc.jpg">
+<img src="https://github.com/FabienFerrero/SUniCA/blob/main/Document/pic/bloc.jpg">
 
 
 ```
@@ -39,7 +39,7 @@ The board is fabricated by RFThings.
  
  ```
  
- <img src="https://github.com/FabienFerrero/SUCA/blob/main/Document/pic/top.jpg">
+ <img src="https://github.com/FabienFerrero/SUniCA/blob/main/Document/pic/top.jpg">
  
  
 # USB Driver
@@ -47,7 +47,7 @@ The board is using ESP32-C3 MCU for USB. You may need to install the driver to u
 https://sparks.gogo.co.nz/ch340.html
 
 
-<img src="https://github.com/FabienFerrero/SUCA/blob/main/Document/pic/usb.jpg">
+<img src="https://github.com/FabienFerrero/SUniCA/blob/main/Document/pic/usb.jpg">
 
 
 
@@ -70,14 +70,14 @@ https://rfthings.github.io/ArduinoBoardManagerJSON/package_rfthings-esp32_index.
 # Schematic
 
 The schematic of the PCB is available in the Schematic section.
-[RF210-C3](https://github.com/FabienFerrero/SUCA/blob/main/Schematic/RF210C-SCAPA.pdf)
+[RF210-C3](https://github.com/FabienFerrero/SUniCA/blob/main/Schematic/RF210C-SCAPA.pdf)
 
 
 # AT-COMMAND
 
 The LORA-WAN AT-COMMAND are based on the RUI3 platform provided by RAK : [RUI3 AT-COMMAND](https://docs.rakwireless.com/RUI3/Serial-Operating-Modes/AT-Command-Manual/#content)
 
-Additional custom AT-COMMAND are provided to access to the specific feature of SUCA board. [ATC-COMMAND DOCUMENTATION](https://github.com/FabienFerrero/SUCA/blob/main/ATC_command.md)
+Additional custom AT-COMMAND are provided to access to the specific feature of SUCA board. [ATC-COMMAND DOCUMENTATION](https://github.com/FabienFerrero/SUniCA/blob/main/ATC_command.md)
 
 
 # RAK3172 FIRMWARE UPDATE
@@ -87,7 +87,7 @@ The process to update RAK3172 can be found on this link : [RF210 RAK3172 firmwar
 
 # EXAMPLES
 
-Examples are available on : [Example Readme](https://github.com/FabienFerrero/SUCA/blob/main/Examples/README.md)
+Examples are available on : [Example Readme](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/README.md)
 
 # License
 
