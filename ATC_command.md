@@ -35,6 +35,7 @@ Additional custom AT-COMMAND are provided to access to the specific feature of S
 ## GPS (LC76F)
 *	ATC+GPSPWR=? : 1:0 Turn ON GPS LDO/ Turn OFF GPS LDO, return OK
 *	ATC+GPS : Update GPS results, return 1 if LC76F is available, return 0 of not
+- ```ATC+GPSFIX=?``` : return 1 if GNSS get a fix, return 0 of not
 *	ATC+GPSSAT=? : return number of satellite available
 *	ATC+GPSTIME=? : return GPS time in EPOCH format, 0 if not available
 *	ATC+GPSLAT=? : return GPS Latitude, 0 if not available
