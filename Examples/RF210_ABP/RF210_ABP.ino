@@ -35,22 +35,22 @@ void setup()
 
    Serial.println("Setup at command");
   mySerial1.println("AT+NJM=0"); // Set ABP
-  delay(200);
+  delay(300);
   mySerial1.println("AT+NWM=1"); // Set LoRaWan mode
   delay(300); 
-  mySerial1.println("AT+BAND=9");// Set AS923-2 frequency band
-  delay(200);
+  mySerial1.println("AT+BAND=4");// Set EU868 frequency band
+  delay(300);
   //Serial.printf("Dev ADR = %s \n", devAddr);
   //mySerial1.printf("AT+DEVADDR=%s\n",devAddr);
   mySerial1.printf("AT+DEVADDR=");
   mySerial1.println(devAddr);
-  delay(200);
+  delay(300);
   mySerial1.printf("AT+NWKSKEY=");
   mySerial1.println(nwkkey);
-  delay(200);  
+  delay(300);  
   mySerial1.printf("AT+APPSKEY=");
   mySerial1.println(appskey);
-  delay(200);
+  delay(300);
    if (mySerial1.available())
   { // If anything comes in Serial1 (pins 4 & 5)
     while (mySerial1.available())
