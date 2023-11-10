@@ -63,11 +63,12 @@ void setup()
 void loop()
 {
 
+int t=(int) 10*measure_temp(); // return temperature in tens of degree
 unsigned char mydata[4];
 mydata[0] = 0x1; // CH1
 mydata[1] = 0x67; // Temp
-mydata[2] = 0xFF;
-mydata[3] = 0xFF;
+mydata[2] = t >> 8;
+mydata[3] = t & 0xFF;
 
 char str[32] = "";
 array_to_string(mydata, 4, str);
@@ -97,4 +98,32 @@ void array_to_string(byte array[], unsigned int len, char buffer[])
         buffer[i*2+1] = nib2  < 0xA ? '0' + nib2  : 'A' + nib2  - 0xA;
     }
     buffer[len*2] = '\0';
+}
+
+// Return temperature level in degree
+ float measure_temp(){
+
+flush_serial_AT();// flush AT Serial reading buffer
+  
+mySerial1.println("ATC+TEMP=?"); // Request bat value
+ String temperature;
+ delay(300);
+
+ if(mySerial1.available()){
+        temperature = mySerial1.readStringUntil('\n');
+        Serial.print("Temperature:");
+        Serial.println(temperature);
+ }
+ 
+return temperature.toFloat();
+ }
+
+void flush_serial_AT(){
+
+   if (mySerial1.available())
+  { // If anything comes in Serial1 (pins 4 & 5)
+    while (mySerial1.available())
+      Serial.write(mySerial1.read()); // read it and send it out Serial (USB)
+  }
+  delay(100);
 }
