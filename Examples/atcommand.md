@@ -5,28 +5,26 @@ Version 0.2, October, 2023
 
 Author: Fabien Ferrero, Manh Thao Nguyen, Trinh Le Huy, Xuan Minh
 
-In these examples, the ATC (custom AT-COMMAND) are shown
+In these examples, the ATC (custom AT-COMMAND) and macro-command are demonstrated.
+
+Three different section are proposed :
+1/ [Sensors Evaluation) [link](Sensors evaluation)
+2/ LoRaWAN ABP
+3/ LoRaWAN OTAA
+
+<h1>Sensors evaluation</h1>
 
 
-# SHT temperature and humidity sensor
-
-1. Activate the SHT sensor, type :
-      
-```	  
-ATC+SHT
-```           
-It returns :
-* ATC+SHT=1
+# SHT temperature and humidity sensor 
     
-    
-2. Check temperature, type :
+1. Measure temperature, type :
 ```            
 ATC+TEMP
 ```            
 It returns a result in Celsius degree: 
 * ATC+TEMP=xx.yy      
 
-3. Check Humidity, type :
+2. Measure Humidity, type :
 ```            
 ATC+HUM
 ```             
@@ -36,17 +34,7 @@ It returns a result in percent of humidity :
 
 # KX023 Accelerometer sensor
 
-1. Activate the KX023 sensor, type :
-``` 
-ATC+KX023
-``` 
-
-It returns : 
-
-* ATC+KX023=1
-
-    
-2. Check the accelerometer value on x-axis, type :
+1. Check the accelerometer value on x-axis, type :
 ```	
 ATC+AX
 ```	 
@@ -55,7 +43,7 @@ It returns the result in G unit :
 * ATC+AX=-x.yy
     
 
-3. Check the accelerometer value on y-axis, type :
+2. Check the accelerometer value on y-axis, type :
 ```	 
 ATC+AY
 ```	
@@ -64,15 +52,23 @@ It returns the result in G unit :
 * ATC+AY=x.yy
 
 
-4. Check the accelerometer value on z-axis, type :
+3. Check the accelerometer value on z-axis, type :
 ```	
 ATC+AZ
 ```	
 It returns the result in G unit : 
 
 * ATC+AZ=x.yy
-
   
+# LTR303 Luminosity sensor
+
+1. Check the luminisoty value , type :
+```	
+ATC+LUM
+```	 
+It returns the result in Lux unit : 
+
+* ATC+AX=-x.yy
 
 # L76F GNSS sensor
 
@@ -150,8 +146,7 @@ ATC+BAT
 ```	
 It returns the battery voltage level in millivolt : 
 
-* ATC+BAT=xxxx
-    
+* ATC+BAT=xxxx   
 
 
 
