@@ -71,6 +71,14 @@ It returns the result in Lux unit :
 
 * ATC+AX=-x.yy
 
+# BLE scanning
+1. Check the BLE scan results , type :
+```	
+$BLEscan
+```	 
+It returns the number of BLE terminal and BLE address with RSSI : 
+
+
 # L76F GNSS sensor
 
 1. GNSS experiment needs to be run with a clear view on the sky to capture signal from GPS, Galileo or Beidu Satellite.
@@ -149,7 +157,30 @@ It returns the battery voltage level in millivolt :
 
 * ATC+BAT=xxxx   
 
-<h1>LoRaWAN ABP</h1>
+<h1>LoRaWAN ABP (Activation by Personalization)</h1>
+
+# Configure ABP parameters 
+  In order to speed up the configuration, and meta-command is available  
+1. Set ABP parameters, type :
+```            
+$setABP
+```            
+It returns the different AT-Command executed. ABP credentials are by default.
+They can be personalized using :
+```	
+AT+DEVADDR=00000000
+AT+NWKSKEY=00000000000000000000000000000000
+AT+APPSKEY=00000000000000000000000000000000
+```	
+2. Send ABP LoRaWan packet on Port 3 with "BABA" payload, type :
+```	
+AT+SEND=3:BABA
+```
+
+3. Send ABP LoRaWan packet with RF210 sensor data, type :
+```	
+$sendLoRa
+```
 
 <h1>LoRaWan OTAA</h1>
 
