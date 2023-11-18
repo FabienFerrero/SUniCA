@@ -149,7 +149,9 @@ It returns the battery voltage level in millivolt :
 
 * ATC+BAT=xxxx   
 
+<h1>LoRaWAN ABP</h1>
 
+<h1>LoRaWan OTAA</h1>
 
 
 # License
