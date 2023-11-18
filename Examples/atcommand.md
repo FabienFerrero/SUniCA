@@ -13,7 +13,7 @@ Three different sections are proposed :
  2. [LoRaWAN ABP](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-abp-activation-by-personalization)
  3. LoRaWAN OTAA
 
-You can use ATE command to toggle the echo mode to read the AT command written on RAK3172 module
+Warning : Echo mode has to be disable, you can use ATE command to toggle the echo mode
 
 <h1>Sensors evaluation</h1>
 
