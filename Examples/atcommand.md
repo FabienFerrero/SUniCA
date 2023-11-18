@@ -7,11 +7,11 @@ Author: Fabien Ferrero, Manh Thao Nguyen, Trinh Le Huy, Xuan Minh
 
 In these examples, the ATC (custom AT-COMMAND) and macro-command are demonstrated.
 
-Three different section are proposed :
+Three different sections are proposed :
 
-1. [Sensors Evaluation](Sensors evaluation)
-2. LoRaWAN ABP
-3. LoRaWAN OTAA
+* 1. [Sensors evaluation](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#sensors-evaluation)
+* 2. LoRaWAN ABP
+* 3. LoRaWAN OTAA
 
 <h1>Sensors evaluation</h1>
 
