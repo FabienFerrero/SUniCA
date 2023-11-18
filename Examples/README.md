@@ -1,7 +1,7 @@
-# SUCA EXAMPLES
+# SUniCA EXAMPLES
 Space Université Côte d'Azur Board for Education
 
-Version 0.2, October, 2023
+Version 0.3, October, 2023
 
 Author: Fabien Ferrero, Manh Thao Nguyen, Trinh Le Huy, Xuan Minh
 
@@ -22,7 +22,7 @@ Before starting Examples, the Arduino IDE and board manager should be installed 
 
 * Type AT-Command in "Message" text box.
 
-* For a step by step tutorial, follow this training : [atcommand](atcommand.md)
+* For a step-by-step tutorial, follow this training : [atcommand](atcommand.md)
 
 # 2/ LoRaWAN Activation by Personalization example
 
