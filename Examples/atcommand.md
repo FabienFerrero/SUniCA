@@ -184,7 +184,7 @@ AT+SEND=3:BABA
 $sendLoRa
 ```
 
-The Javascript decoder to use in the network server is : [decoder](Examples/RF210_Lab/decoder.js)
+The Javascript decoder to use in the network server is : [decoder](RF210_Lab/decoder.js)
 
 4. To send LoRaWan packet periodically (every 30 sec), type :
    
@@ -225,7 +225,7 @@ AT+SEND=3:BABA
 $sendLoRa
 ```
 
-The Javascript decoder to use in the network server is : [decoder](Examples/RF210_Lab/decoder.js)
+The Javascript decoder to use in the network server is : [decoder](RF210_Lab/decoder.js)
 
 5. To send LoRaWan packet periodically (every 30 sec), type :
    
