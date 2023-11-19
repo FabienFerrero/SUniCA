@@ -182,6 +182,9 @@ It returns the battery voltage level in millivolt :
 <h1>LoRaWAN ABP (Activation by Personalization)</h1>
 
 # Configure ABP parameters 
+You are going to send a LoRaWAN packet to a network server.
+If you are using The Things Network, you can follow this tutorial to get your LoRaWAN parameters (devaddress, nwkskey and appskey).
+[TTN tuto](abp_ttn.md)
 
 0. It is recommended to reset the Rak3172 module before a new configuration, type :
    
