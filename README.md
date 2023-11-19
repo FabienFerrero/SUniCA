@@ -81,11 +81,13 @@ Additional custom AT-COMMAND are provided to access to the specific feature of S
 # RAK3172 FIRMWARE UPDATE
 
 The RAK3172 module must be updated to support the latest features.
+
 The process to update RAK3172 can be found on this link : [RF210 RAK3172 firmware](https://github.com/XuanMinh201/RF210/tree/main)
 
 # EXAMPLES & TUTORIALS
 
 Examples and Tutorials are available on : [Example Readme](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/README.md)
+
 The different features of the RF210 board can be tested with simple AT-COMMAND.
 
 # License
