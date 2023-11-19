@@ -39,8 +39,6 @@ The board is fabricated by RFThings.
  
  ```
  
- <img src="https://github.com/FabienFerrero/SUniCA/blob/main/Document/pic/top.jpg">
- 
  
 # USB Driver
 The board is using ESP32-C3 MCU for USB. You may need to install the driver to use the board:
