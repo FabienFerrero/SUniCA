@@ -25,7 +25,7 @@ Three different sections are proposed in this tutorial :
 
 * Open Serial Monitor with 115200 baud
 
-* ==Warning==: Echo mode has to be disabled for this tutorial, you can use ATE command to toggle the echo mode
+* ==Warning== : Echo mode has to be disabled for this tutorial, you can use ATE command to toggle the echo mode
   
 * check Rak3172 Firmware version, type :
 ```            
