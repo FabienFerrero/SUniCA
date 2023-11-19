@@ -11,7 +11,7 @@ Three different sections are proposed :
 
  1. [Sensors evaluation](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#sensors-evaluation)
  2. [LoRaWAN ABP](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-abp-activation-by-personalization)
- 3. LoRaWAN OTAA
+ 3. [LoRaWAN OTAA](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-otaa)
 
 Warning : Echo mode has to be disable, you can use ATE command to toggle the echo mode
 
@@ -184,7 +184,52 @@ AT+SEND=3:BABA
 $sendLoRa
 ```
 
+The Javascript decoder to use in the network server is : 
+
+4. To send LoRaWan packet periodically (every 30 sec), type :
+   
+```	
+$periodic
+```
+
 <h1>LoRaWan OTAA</h1>
+
+  In order to speed up the configuration, and meta-command is available  
+1. Set OTAA parameters, type :
+```            
+$setOTAA
+```            
+It returns the different AT-Command executed. ABP credentials are by default.
+They can be personalized using :
+```	
+AT+DEVADDR=00000000
+AT+NWKSKEY=00000000000000000000000000000000
+AT+APPKEY=00000000000000000000000000000000
+```	
+2. Join the LoRaWan network, type :
+```	
+AT+JOIN
+```
+
+If it successfully join the network, it returns  : 
+
+* JOINED
+
+3. Send LoRaWan packet on Port 3 with "BABA" payload, type :
+```	
+AT+SEND=3:BABA
+```
+
+4. Send LoRaWan packet with RF210 sensor data, type :
+```	
+$sendLoRa
+```
+
+5. To send LoRaWan packet periodically (every 30 sec), type :
+   
+```	
+$periodic
+```
 
 
 # License
