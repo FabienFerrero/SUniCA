@@ -20,9 +20,13 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| {======|_|"""""|_| """ |_|"""""
 
 // Define Default LoRaWan ABP credential
 
-String devAddr = "260BBD3A";
-String nwkkey = "41E878B4C85999BECA298C6205A202BF";
-String appskey = "250F552CB5C43F1EB13282F6422A6E2D";
+String devAddr = "00000000";
+String nwkkey = "00000000000000000000000000000000";
+String appskey = "00000000000000000000000000000000";
+
+String appEUI = "0000000000000000";
+String devEUI = "0000000000000000";
+String appkey = "00000000000000000000000000000000";
 
 // ESP32 C3 SERIAL1 (second UART)
 HardwareSerial mySerial1(1);
@@ -31,8 +35,10 @@ HardwareSerial mySerial1(1);
 int scanTime = 5; //In seconds
 BLEScan* pBLEScan;
 
-int period = 30; // period to send LoRaWAN packet
+int period = 30000; // period to send LoRaWAN packet in ms
 int rx_delay = 0;
+unsigned long currentMillis = 0, getSensorDataPrevMillis = 0;
+boolean lora_sending=false;
 
 class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
     void onResult(BLEAdvertisedDevice advertisedDevice) {
@@ -51,7 +57,7 @@ void setup()
   delay(1000);
   Serial.println("RF210 Lab");
 
-  Serial.println("Setup BLE");
+  
   BLEDevice::init("");
   pBLEScan = BLEDevice::getScan(); //create new scan
   pBLEScan->setAdvertisedDeviceCallbacks(new MyAdvertisedDeviceCallbacks());
@@ -91,18 +97,25 @@ void loop()
 
  
   if (button > 0){
-  
- mySerial1.println("ATC+GPSON=1");
-  delay(300);
-   mySerial1.println("ATC+GPSCONST");
-  delay(300);
-  mySerial1.println("ATC+GPSNMEA=1");
+
+  SetLoRaABP();
+  delay(2000);
+  lora_sending=!lora_sending;
   delay(300);
   digitalWrite(4, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(200);                       // wait for a second
   digitalWrite(4, LOW);    // turn the LED off by making the voltage LOW
   delay(200);  
   button=0;    
+  }
+
+  if (lora_sending==1){
+      currentMillis = millis();  
+      
+      if (currentMillis - getSensorDataPrevMillis > period){
+        getSensorDataPrevMillis=currentMillis;
+        SendLoRa(1);        
+      }
   }
   
   if (Serial.available()) {      // If anything comes in Serial (USB),
@@ -120,9 +133,16 @@ void loop()
     else if(CMD.equalsIgnoreCase("SetABP")){
       SetLoRaABP();
       }  
-    else if(CMD.equalsIgnoreCase("SendABP")){
-      SendLoRaABP("BABA");
+    else if(CMD.equalsIgnoreCase("SetOTAA")){
+      SetLoRaOTAA();
+      } 
+    else if(CMD.equalsIgnoreCase("SendLoRa")){
+      SendLoRa(1);
       }
+    else if(CMD.equalsIgnoreCase("Periodic")){
+      lora_sending=!lora_sending;
+      }
+    
     else{
      Serial.println("Wrong Command");
         }  
@@ -146,9 +166,9 @@ int BLEscan(boolean log){
       Serial.println("Start Scanning BLE during 5s");
       BLEScanResults foundDevices = pBLEScan->start(scanTime, false);
       int scan_num = foundDevices.getCount();
-      if (log){
       Serial.print("Devices found: ");      
       Serial.println(scan_num);
+      if (log){
       checklist(foundDevices,scan_num);
       }
       foundDevices.dump();
@@ -160,64 +180,133 @@ void SetLoRaABP(){
    mySerial1.println("AT+NJM=0"); // Set ABP
    Serial.println("AT+NJM=0"); // Set ABP
   delay(200);
-  flush_serial_AT(); 
+  flush_serial_AT(true); 
   mySerial1.println("AT+BAND=4");// Set EU868 frequency band
   Serial.println("AT+BAND=4");// Set EU868 frequency band
   delay(200);
-  flush_serial_AT();
+  flush_serial_AT(true);
 
   mySerial1.println("AT+DR=5");// Set EU868 frequency band
   Serial.println("AT+DR=5");// Set EU868 frequency band  
   delay(200); 
-  flush_serial_AT();
+  flush_serial_AT(true);
   mySerial1.printf("AT+DEVADDR=");
   mySerial1.println(devAddr);
   Serial.printf("AT+DEVADDR=");
   Serial.println(devAddr);
   delay(200);
-  flush_serial_AT();
+  flush_serial_AT(true);
   mySerial1.printf("AT+NWKSKEY=");
   mySerial1.println(nwkkey);
   Serial.printf("AT+NWKSKEY=");
   Serial.println(nwkkey);
   delay(200);
-  flush_serial_AT();
+  flush_serial_AT(true);
   mySerial1.printf("AT+APPSKEY=");
   mySerial1.println(appskey);
+  Serial.printf("AT+APPSKEY=");
+  Serial.println(appskey);
   delay(200);
+  flush_serial_AT(true);
+}
+
+void SetLoRaOTAA(){
+   mySerial1.println("AT+NJM=1"); // Set OTAA
+  Serial.println("AT+NJM=1"); // Set OTAA
+  delay(200);
+  flush_serial_AT(true); 
+  mySerial1.println("AT+BAND=4");// Set EU868 frequency band
+  Serial.println("AT+BAND=4");// Set EU868 frequency band
+  delay(200);
+  flush_serial_AT(true);
+
+  mySerial1.println("AT+DR=5");// Set SF7
+  Serial.println("AT+DR=5");// Set SF7  
+  delay(200); 
+  flush_serial_AT(true);
+  mySerial1.printf("AT+DEVEUI=");
+  mySerial1.println(devEUI);
+  Serial.printf("AT+DEVEUI=");
+  Serial.println(devEUI);
+  delay(200);
+  flush_serial_AT(true);
+  mySerial1.printf("AT+APPEUI=");
+  mySerial1.println(appEUI);
+  Serial.printf("AT+APPEUI=");
+  Serial.println(appEUI);
+  delay(200);
+  flush_serial_AT(true);
+  mySerial1.printf("AT+APPKEY=");
+  mySerial1.println(appkey);
+  Serial.printf("AT+APPKEY=");
+  Serial.println(appkey);
+  delay(200);
+  flush_serial_AT(true);
 }
 
 
-void SendLoRaABP(String str){
-flush_serial_AT(); 
+bool SendLoRa(uint8_t mode){
+
+int16_t t=(int16_t) 100*measure_temp(); // return temperature in cents of degree
+uint8_t h=(uint8_t)2*measure_hum(); // return humidity in percent
+int8_t x = 50*measure_acc(1);
+int8_t y = 50*measure_acc(2);
+int8_t z = 50*measure_acc(3);
+int16_t l = 10*measure_lum();
+uint16_t b = BLEscan(false);
+uint16_t bat = measure_bat();
+
+
+//int blocks=7;
+int i=0;
+unsigned char mydata[64];
+mydata[i++] = t >> 8;
+mydata[i++] = t & 0xFF;
+mydata[i++] = h;
+mydata[i++] = x;
+mydata[i++] = y;
+mydata[i++] = z;
+mydata[i++] = l >> 8;
+mydata[i++] = l & 0xFF;
+mydata[i++] = b >> 8;
+mydata[i++] = b & 0xFF;
+mydata[i++] = bat >> 8;
+mydata[i++] = bat & 0xFF;
+
+char str[32];
+array_to_string(mydata, i, str);
+
+flush_serial_AT(false); 
 blink();
-
-mySerial1.printf("AT+SEND=3:");
+mySerial1.printf("AT+SEND=4:");
 mySerial1.println(str);
-Serial.printf("AT+SEND=3:");
-Serial.println(str);
 
-delay(200);
+while (mySerial1.available() == 0)
+{
+delay(100);
+}
 mySerial1.readStringUntil('\n');
 while (mySerial1.available() == 0)
 {
 rx_delay=rx_delay+100;
 delay(100);
+if(rx_delay>6000){
+  Serial.println("Error during uplink process (do you perform the JOIN ?)");
+  return false;}
 }
 Serial.print("Rx delay : ");
 Serial.println(rx_delay);
 
    if (mySerial1.available())
-  { // If anything comes in Serial1 (pins 4 & 5)
+  { // If anything comes in Serial1
     while (mySerial1.available())
       Serial.write(mySerial1.read()); // read it and send it out Serial (USB)
   }
   Serial.println("AT set complete with downlink");
-  int wait_time=period*1000 - rx_delay;
-  rx_delay=0;
-  delay(wait_time);
- 
+  return true;
 }
+
+
   
  void array_to_string(byte array[], unsigned int len, char buffer[])
 {
@@ -235,7 +324,7 @@ Serial.println(rx_delay);
  float measure_temp(){
 
 //Serial.flush();
-flush_serial_AT();// flush AT Serial reading buffer
+flush_serial_AT(false);// flush AT Serial reading buffer
   
 mySerial1.println("ATC+TEMP=?"); // Request bat value
  String temperature;
@@ -254,26 +343,24 @@ return temperature.toFloat();
  float measure_hum(){
 
 //Serial.flush();
-flush_serial_AT();// flush AT Serial reading buffer
+flush_serial_AT(false);// flush AT Serial reading buffer
   
 mySerial1.println("ATC+HUM=?"); // Request bat value
  String hum;
  delay(100);
-
  if(mySerial1.available()){
         hum = mySerial1.readStringUntil('\n');
         Serial.print("Humidity:");
         Serial.println(hum);
- }
- 
+ } 
 return hum.toFloat();
  }
 
 // Return humidity level in percent
  float measure_lum(){
 
-//Serial.flush();
-flush_serial_AT();// flush AT Serial reading buffer
+
+flush_serial_AT(false);// flush AT Serial reading buffer
   
 mySerial1.println("ATC+LUM=?"); // Request bat value
  String lum;
@@ -291,8 +378,8 @@ return lum.toFloat();
   // Return Acceleration level in G
  float measure_acc(int axis){
 
-//Serial.flush();
-flush_serial_AT();// flush AT Serial reading buffer
+
+flush_serial_AT(false);// flush AT Serial reading buffer
 
 if(axis==1){  
 mySerial1.println("ATC+AX=?"); // Request bat value
@@ -314,16 +401,42 @@ mySerial1.println("ATC+AZ=?"); // Request bat value
 return a.toFloat();
  }
 
-void flush_serial_AT(){
+// Return bat level in mv
+ float measure_bat(){
+
+//Serial.flush();
+flush_serial_AT(false);// flush AT Serial reading buffer
+  
+mySerial1.println("ATC+BAT=?"); // Request bat value
+ String bat;
+  while (mySerial1.available() == 0)
+{
+delay(100);
+  }
+ delay(100);
+
+ if(mySerial1.available()){
+        bat = mySerial1.readStringUntil('\n');
+        Serial.print("Bat:");
+        Serial.println(bat);
+ }
+ 
+return bat.toFloat();
+ } 
+
+void flush_serial_AT(bool print){
 
    if (mySerial1.available())
-  { // If anything comes in mySerial1
+  { // If anything comes in Serial1 (pins 4 & 5)
     while (mySerial1.available())
-      Serial.write(mySerial1.read()); // read it and send it out Serial (USB)
-      mySerial1.read();
+      if(print) {Serial.write(mySerial1.read()); // read it and send it out Serial (USB)
+      }
+      else {
+      mySerial1.read();}
   }
   delay(100);
 }
+
 
 
 void blink(){
