@@ -255,6 +255,11 @@ The Javascript decoder to use in the network server is : [decoder](RF210_Lab/dec
 $periodic
 ```
 
+<h1>Automatic LoRaWan ABP mode</h1>
+
+By pushing the B_ESP button on the RF210 terminal, the periodic ABP LoRaWAN sending with sensors value is automatically activated.
+It can be used to connect the device on any USB plug and to start a measurement
+
 
 # License
 
