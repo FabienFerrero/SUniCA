@@ -7,6 +7,8 @@ Author: Fabien Ferrero, Manh Thao Nguyen, Trinh Le Huy, Xuan Minh
 
 In these examples, the ABP using TTN is shown
 
+*  If you are not familiar with LoRaWAN, useful information is available on   [https://www.univ-smb.fr/lorawan/en/free-book/](https://www.univ-smb.fr/lorawan/en/free-book/)
+
 
 # The Things Network LoRaWAN network server
 
