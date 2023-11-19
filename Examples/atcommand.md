@@ -224,9 +224,9 @@ $setOTAA
 It returns the different AT-Command executed. ABP credentials are by default.
 They can be personalized using :
 ```	
-AT+DEVADDR=00000000
-AT+NWKSKEY=00000000000000000000000000000000
-AT+APPKEY=00000000000000000000000000000000
+AT+DEVEUI=00000000
+AT+APPEUI=0000000000000000
+AT+APPKEY=0000000000000000
 ```	
 2. Join the LoRaWan network, type :
 ```	
@@ -235,7 +235,7 @@ AT+JOIN
 
 If it successfully join the network, it returns  : 
 
-* JOINED
+* +EVT:JOINED
 
 3. Send LoRaWan packet on Port 3 with "BABA" payload, type :
 ```	
