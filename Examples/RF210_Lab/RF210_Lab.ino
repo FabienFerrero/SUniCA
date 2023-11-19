@@ -33,10 +33,11 @@ HardwareSerial mySerial1(1);
 
 // BLE scan
 int scanTime = 5; //In seconds
+int BLE_near = 0;
+int BLE_tot = 0;
 BLEScan* pBLEScan;
 
 int period = 30000; // period to send LoRaWAN packet in ms
-int rx_delay = 0;
 unsigned long currentMillis = 0, getSensorDataPrevMillis = 0;
 boolean lora_sending=false;
 
@@ -73,18 +74,15 @@ void setup()
    pinMode(9, INPUT_PULLUP);
     attachInterrupt(digitalPinToInterrupt(9), i_button_isr, RISING);
  // pinMode(1, OUTPUT); // GNSS enable
-  digitalWrite(4, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);                       // wait for a second
-  digitalWrite(4, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);  
+  blink(500);
 
   //  digitalWrite(1, LOW);   // switch off GPS
     digitalWrite(10, HIGH); // Switch on RAK
     delay(1000);
   mySerial1.begin(115200, SERIAL_8N1, rxPin, txPin);
   delay(1000);  
-  mySerial1.println("ATE");
-  delay(100);
+  mySerial1.println("ATR");  // Reset RAK3172
+  delay(200);
   
     while (mySerial1.available()){
       Serial.write(mySerial1.read()); // read it and send it out Serial (USB)
@@ -102,10 +100,7 @@ void loop()
   delay(2000);
   lora_sending=!lora_sending;
   delay(300);
-  digitalWrite(4, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(200);                       // wait for a second
-  digitalWrite(4, LOW);    // turn the LED off by making the voltage LOW
-  delay(200);  
+  blink(200);
   button=0;    
   }
 
@@ -121,9 +116,7 @@ void loop()
   if (Serial.available()) {      // If anything comes in Serial (USB),
   c=Serial.read();
   if(c=='$'){     
-    digitalWrite(4, HIGH);   // turn the LED on (HIGH is the voltage level)
-    delay(50);                       // wait for a second
-    digitalWrite(4, LOW);    // turn the LED off by making the voltage LOW
+    blink(50);
     
     String CMD=Serial.readStringUntil('\r');
     Serial.println(CMD);           
@@ -178,16 +171,16 @@ int BLEscan(boolean log){
 
 void SetLoRaABP(){
    mySerial1.println("AT+NJM=0"); // Set ABP
-   Serial.println("AT+NJM=0"); // Set ABP
+   Serial.println("AT+NJM=0 // Set ABP"); // Set ABP
   delay(200);
   flush_serial_AT(true); 
   mySerial1.println("AT+BAND=4");// Set EU868 frequency band
-  Serial.println("AT+BAND=4");// Set EU868 frequency band
+  Serial.println("AT+BAND=4 // Set EU868 frequency band");// Set EU868 frequency band
   delay(200);
   flush_serial_AT(true);
 
   mySerial1.println("AT+DR=5");// Set EU868 frequency band
-  Serial.println("AT+DR=5");// Set EU868 frequency band  
+  Serial.println("AT+DR=5 // Set EU868 frequency band");// Set EU868 frequency band  
   delay(200); 
   flush_serial_AT(true);
   mySerial1.printf("AT+DEVADDR=");
@@ -212,16 +205,16 @@ void SetLoRaABP(){
 
 void SetLoRaOTAA(){
    mySerial1.println("AT+NJM=1"); // Set OTAA
-  Serial.println("AT+NJM=1"); // Set OTAA
+  Serial.println("AT+NJM=1 // Set OTAA mode"); // Set OTAA
   delay(200);
   flush_serial_AT(true); 
   mySerial1.println("AT+BAND=4");// Set EU868 frequency band
-  Serial.println("AT+BAND=4");// Set EU868 frequency band
+  Serial.println("AT+BAND=4 // Set EU868 frequency band");// Set EU868 frequency band
   delay(200);
   flush_serial_AT(true);
 
   mySerial1.println("AT+DR=5");// Set SF7
-  Serial.println("AT+DR=5");// Set SF7  
+  Serial.println("AT+DR=5 // Set SF7 (default is SF12)");// Set SF7  
   delay(200); 
   flush_serial_AT(true);
   mySerial1.printf("AT+DEVEUI=");
@@ -247,6 +240,7 @@ void SetLoRaOTAA(){
 
 bool SendLoRa(uint8_t mode){
 
+int16_t rx_delay=0;
 int16_t t=(int16_t) 100*measure_temp(); // return temperature in cents of degree
 uint8_t h=(uint8_t)2*measure_hum(); // return humidity in percent
 int8_t x = 50*measure_acc(1);
@@ -277,7 +271,7 @@ char str[32];
 array_to_string(mydata, i, str);
 
 flush_serial_AT(false); 
-blink();
+blink(100);
 mySerial1.printf("AT+SEND=4:");
 mySerial1.println(str);
 
@@ -290,12 +284,13 @@ while (mySerial1.available() == 0)
 {
 rx_delay=rx_delay+100;
 delay(100);
-if(rx_delay>6000){
+if(rx_delay>8000){
   Serial.println("Error during uplink process (do you perform the JOIN ?)");
   return false;}
 }
 Serial.print("Rx delay : ");
 Serial.println(rx_delay);
+
 
    if (mySerial1.available())
   { // If anything comes in Serial1
@@ -393,9 +388,7 @@ mySerial1.println("ATC+AZ=?"); // Request bat value
  String a;
  delay(100);
  if(mySerial1.available()){
-        a = mySerial1.readStringUntil('\n');
-        Serial.print("Acc:");
-        Serial.println(a);
+        a = mySerial1.readStringUntil('\n');        
  }
  
 return a.toFloat();
@@ -439,9 +432,9 @@ void flush_serial_AT(bool print){
 
 
 
-void blink(){
+void blink(int blinktime){
 digitalWrite(4, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(100);                       // wait for a second
+  delay(blinktime);                       // wait for a second
   digitalWrite(4, LOW);    // turn the LED off by making the voltage LOW
 } 
 
@@ -450,11 +443,16 @@ digitalWrite(4, HIGH);   // turn the LED on (HIGH is the voltage level)
 // Increment counter and append BLE list if new device detected 
 void checklist(BLEScanResults foundDevices, int scan_num) {
   
+  BLE_tot = scan_num;
+  BLE_near = 0;
+  int RSSI;
+
 for (int i=0;i<scan_num;i++){
     Serial.printf("Device: %x : ", foundDevices.getDevice(i).getAddress());
     Serial.print("  RSSI :");
-    Serial.println(foundDevices.getDevice(i).getRSSI());
-    delay(50);
-                   
+    RSSI = foundDevices.getDevice(i).getRSSI();
+    Serial.println(RSSI);
+    if(RSSI > -75) {BLE_near++;}                   
    } // end for 
+ Serial.println(BLE_near);
 }
