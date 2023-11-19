@@ -24,7 +24,7 @@ Before starting Examples, the Arduino IDE and board manager should be installed 
 
 # 2/ LoRaWAN Activation by Personalization example
 
-*  If you are not familiar with LoRaWAN, useful information is available on :   [https://www.univ-smb.fr/lorawan/en/free-book/](https://www.univ-smb.fr/lorawan/en/free-book/)
+*  If you are not familiar with LoRaWAN, useful information is available on:   [https://www.univ-smb.fr/lorawan/en/free-book/](https://www.univ-smb.fr/lorawan/en/free-book/)
 
 *  Open in Arduini IDE [Examples/RF210_ABP/RF210_ABP.ino](/Examples/RF210_ABP/RF210_ABP.ino)  , the code is simply providing the different AT-COMMAND to set a LoRaWan ABP transmission.
 
