@@ -7,13 +7,33 @@ Author: Fabien Ferrero, Manh Thao Nguyen, Trinh Le Huy, Xuan Minh
 
 In these examples, the ATC (custom AT-COMMAND) and macro-command are demonstrated.
 
-Three different sections are proposed :
+Three different sections are proposed in this tutorial :
 
  1. [Sensors evaluation](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#sensors-evaluation)
  2. [LoRaWAN ABP](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-abp-activation-by-personalization)
  3. [LoRaWAN OTAA](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-otaa)
 
-Warning : Echo mode has to be disable, you can use ATE command to toggle the echo mode
+
+
+<h1>Before starting this tutorial</h1>
+
+*  Dip Switch 2 has to be in ESP32-C3 mode to connect UART between ESP32-C3 and RAK3172
+
+*  Open in Arduini IDE [Examples/RF210_RAK3172_Lab/RF210_Lab.ino](/Examples/RF210_Lab/RF210_Lab.ino)
+
+*  Click on the upload button in Arduino IDE (for LoRaWan Example, you can update the credentials)
+
+* Open Serial Monitor with 115200 baud
+
+* ==Warning==: Echo mode has to be disabled for this tutorial, you can use ATE command to toggle the echo mode
+  
+* check Rak3172 Firmware version, type :
+```            
+ATC+VER
+```            
+It should return version 0.1.2 or higher: 
+* ATC+VER=xx.yy.zz     
+
 
 <h1>Sensors evaluation</h1>
 
@@ -178,6 +198,8 @@ AT+APPSKEY=00000000000000000000000000000000
 ```	
 AT+SEND=3:BABA
 ```
+
+You can also schedule a downlink from the Network server. After sending the loraWan packet, the downlink will be received on the Rx window and show in your log. 
 
 3. Send ABP LoRaWan packet with RF210 sensor data, type :
 ```	
