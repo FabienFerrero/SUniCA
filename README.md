@@ -7,9 +7,9 @@ Author: Fabien Ferrero, Manh Thao Nguyen, Trinh Le Huy, Xuan Minh
 
 # Un document en Français est dipobible sur ce lien : [LISEZMOI](LISEZMOI.md)
 
-This board was developed for education to support courses on embedded software, digital and analog electronic, telecommunication, signal processing and IoT.
+This board was developed for education to support courses on embedded software, digital and analog electronic, telecommunication, signal processing, and IoT.
 The terminal is based on a ESP32-C3 as a main MCU for user code. The ESP32-C3 is using [AT-COMMAND](#AT-COMMAND) to control a RAK3172 module.
-The RAK3172 integrate a LoRaWAN transciever and is also connected to a GNSS module and different sensors.
+The RAK3172 integrates a LoRaWAN transceiver and is connected to a GNSS module and different sensors.
 The different features can be accessed using AT-COMMAND. 
 
 # What's new
@@ -83,9 +83,10 @@ Additional custom AT-COMMAND are provided to access to the specific feature of S
 The RAK3172 module must be updated to support the latest features.
 The process to update RAK3172 can be found on this link : [RF210 RAK3172 firmware](https://github.com/XuanMinh201/RF210/tree/main)
 
-# EXAMPLES
+# EXAMPLES & TUTORIALS
 
-Examples are available on : [Example Readme](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/README.md)
+Examples and Tutorials are available on : [Example Readme](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/README.md)
+The different features of the RF210 board can be tested with simple AT-COMMAND.
 
 # License
 
