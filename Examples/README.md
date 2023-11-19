@@ -1,8 +1,6 @@
 # SUniCA EXAMPLES
 Space Université Côte d'Azur Board for Education
-
 Version 0.3, October, 2023
-
 Author: Fabien Ferrero, Manh Thao Nguyen, Trinh Le Huy, Xuan Minh
 
 In these examples, the main terminal features are showcased
@@ -14,15 +12,15 @@ Before starting Examples, the Arduino IDE and board manager should be installed 
 
 *  Dip Switch 2 has to be in ESP32-C3 mode to connect UART between ESP32-C3 and RAK3172
 
-*  Open in Arduini IDE [Examples/RF210_RAK3172_bridge/RF210_RAK3172_bridge.ino](/Examples/RF210_RAK3172_bridge/RF210_RAK3172_bridge.ino)
+*  Open in Arduini IDE [Examples/RF210_RAK3172_Lab/RF210_Lab.ino](/Examples/RF210_Lab/RF210_Lab.ino)
 
-*  Click on the upload button in Arduino IDE
+*  Click on the upload button in Arduino IDE (for LoRaWan Example, you can update the credentials)
 
 * Open Serial Monitor with 115200 baud
 
 * Type AT-Command in "Message" text box.
 
-* For a step-by-step tutorial, follow this training : [atcommand](atcommand.md)
+* A step-by-step tutorial is available here : [atcommand](atcommand.md)
 
 # 2/ LoRaWAN Activation by Personalization example
 
