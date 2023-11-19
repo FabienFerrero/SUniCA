@@ -182,6 +182,13 @@ It returns the battery voltage level in millivolt :
 <h1>LoRaWAN ABP (Activation by Personalization)</h1>
 
 # Configure ABP parameters 
+
+0. It is recommended to reset the Rak3172 module before a new configuration, type :
+   
+```	
+ATZ
+```
+
   In order to speed up the configuration, and meta-command is available  
 1. Set ABP parameters, type :
 ```            
@@ -215,6 +222,12 @@ $periodic
 ```
 
 <h1>LoRaWan OTAA</h1>
+
+0. It is recommended to reset the Rak3172 module before a new configuration, type :
+   
+```	
+ATZ
+```
 
   In order to speed up the configuration, and meta-command is available  
 1. Set OTAA parameters, type :
