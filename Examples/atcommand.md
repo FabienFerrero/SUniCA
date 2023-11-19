@@ -10,8 +10,10 @@ In these examples, the ATC (custom AT-COMMAND) and macro-command are demonstrate
 Three different sections are proposed :
 
  1. [Sensors evaluation](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#sensors-evaluation)
- 2. LoRaWAN ABP
+ 2. [LoRaWAN ABP](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-abp-activation-by-personalization)
  3. LoRaWAN OTAA
+
+Warning : Echo mode has to be disable, you can use ATE command to toggle the echo mode
 
 <h1>Sensors evaluation</h1>
 
@@ -70,6 +72,14 @@ ATC+LUM
 It returns the result in Lux unit : 
 
 * ATC+AX=-x.yy
+
+# BLE scanning
+1. Check the BLE scan results , type :
+```	
+$BLEscan
+```	 
+It returns the number of BLE terminal and BLE address with RSSI : 
+
 
 # L76F GNSS sensor
 
@@ -149,7 +159,30 @@ It returns the battery voltage level in millivolt :
 
 * ATC+BAT=xxxx   
 
-<h1>LoRaWAN ABP</h1>
+<h1>LoRaWAN ABP (Activation by Personalization)</h1>
+
+# Configure ABP parameters 
+  In order to speed up the configuration, and meta-command is available  
+1. Set ABP parameters, type :
+```            
+$setABP
+```            
+It returns the different AT-Command executed. ABP credentials are by default.
+They can be personalized using :
+```	
+AT+DEVADDR=00000000
+AT+NWKSKEY=00000000000000000000000000000000
+AT+APPSKEY=00000000000000000000000000000000
+```	
+2. Send ABP LoRaWan packet on Port 3 with "BABA" payload, type :
+```	
+AT+SEND=3:BABA
+```
+
+3. Send ABP LoRaWan packet with RF210 sensor data, type :
+```	
+$sendLoRa
+```
 
 <h1>LoRaWan OTAA</h1>
 
