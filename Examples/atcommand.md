@@ -281,6 +281,6 @@ It can be used to connect the device on any USB plug and to start a measurement
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-<img src="https://github.com/FabienFerrero/SUniCA/blob/main/Doc/Pictures/UCniCA_logo.png">
+<img src="Document/pic/UniCA_logo.png">
 
 Maintained by Fabien Ferrero and Trinh Le Huy
