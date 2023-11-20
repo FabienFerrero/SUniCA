@@ -50,6 +50,6 @@ In these examples, the ABP using TTN is shown
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-<img src="Document/pic/UniCA_logo.png">
+<img src="../Document/pic/UniCA_logo.png">
 
 Maintained by Fabien Ferrero and Trinh Le Huy
