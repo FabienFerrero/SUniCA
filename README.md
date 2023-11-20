@@ -95,6 +95,6 @@ The different features of the RF210 board can be tested with simple AT-COMMAND.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-<img src="https://github.com/FabienFerrero/UCA21/blob/main/Doc/Pictures/UCA_logo.png">
+<img src="Document/pic/UniCA_logo.png">
 
 Maintained by Fabien Ferrero and Trinh Le Huy
