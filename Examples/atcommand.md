@@ -118,7 +118,7 @@ It returns :
    
 4. Plot log from the GPS , type
 ```	
-ATC+LOG=1
+ATC+GPSLOG=1
 ```	
 It returns : 
 
