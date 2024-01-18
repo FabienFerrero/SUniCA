@@ -24,6 +24,8 @@ Additional custom AT-COMMAND are provided to access to the specific feature of S
 - ```ATC+AX=?``` : return the value of X acceleration with 0.01G resolution, return 0 if not available
 - ```ATC+AY=?``` : return the value of Y acceleration with 0.01G resolution, return 0 if not available
 - ```ATC+AZ?``` : return the value of Z acceleration with 0.01G resolution, return 0 if not available
+- ```ATC+TAP``` : activate Tap mode to detect Single or Double Tap, return 0 if not available
+- ```ATC+ACC_READ``` : Read continuously accelerometer X,Y and Z axis, return 0 if not available
 
 ## Luminosity sensor (LTR303)
 - ```ATC+LTR=?``` : return 1 if sensor is available, return 0 of not
