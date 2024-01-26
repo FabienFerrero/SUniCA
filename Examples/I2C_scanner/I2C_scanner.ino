@@ -40,6 +40,8 @@ void setup()
   digitalWrite(LED, LOW);    // turn the LED off by making the voltage LOW
    
   delay(2000);
+    pinMode(10, OUTPUT); // LED
+  digitalWrite(10, HIGH);   // turn the LED on (HIGH is the voltage level)
   
   pinMode (5, INPUT_PULLUP);
   pinMode (6, INPUT_PULLUP);
