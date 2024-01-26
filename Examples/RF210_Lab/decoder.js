@@ -2,7 +2,7 @@ function Decoder(bytes, port) {
  
   var decoded = {};
 
-  if( port == 4) {
+  if( port == 3) {
     var temperature = ((bytes[0] << 8) | bytes[1]);
      if(temperature >= 0x8000) temperature = -(0x10000 - temperature);
     decoded.temperature = temperature / 100.0;
