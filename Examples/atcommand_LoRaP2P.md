@@ -1,4 +1,4 @@
-# AT-COMMAND EXAMPLES
+# AT-COMMAND FOR P2P Communication
 Space Université Côte d'Azur Board for Education
 
 Version 0.4, Feb, 2024
@@ -14,7 +14,8 @@ Two different sections are proposed in this tutorial :
 
  1. [Continous Wave](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand_LoRaP2P.md#continuous-wave)
  2. [P2P FSK](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand_LoRaP2P.md#p2p-fsk-modulation)
- 3. [P2P LoRa](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand_LoRaP2P.md#p2p-lora-modulation-ccs-)
+ 3. [P2P LoRa Modulation](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand_LoRaP2P.md#p2p-lora-modulation-ccs-)
+ 4. [P2P LoRa Communication between two SUNICA boards] https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand_LoRaP2P.md#p2p-lora-communication-between-two-sunica-boards
 
 
 
@@ -136,6 +137,49 @@ $testloraSF
 
 <h1>P2P LoRa Communication between two SUNICA boards</h1>
 
+This part of the lab requires two SUNICA terminals. One terminal will be the Transmitter and the second will be the receiver.
+
+0. Before starting the communication, you must agree on the configuration to be used. Especially, you have to define the frequency, bandwidth and Spreading Factor that will be used.
+
+1. Initialize LoRa P2P
+
+Use the meta-command to reset all modulation parameters. It will configure a LoRa with SF12 at 868MHz
+   
+```	
+$startLoRa
+```
+
+2. Configure your frequency, SF and BW
+
+```	
+AT+PFREQ=XX
+```
+XX : RF frequency in Hz (ie 865000000)
+
+```	
+AT+PBW=YY
+```
+YY : Freq. Bandwidth [0 = 125, 1 = 250, 2 = 500, 3 = 7.8, 4 = 10.4, 5 = 15.63, 6 = 20.83, 7 = 31.25, 8 = 41.67, 9 = 62.5]
+
+```	
+AT+PSF==ZZ
+```
+ZZ : Spreading Factor [5;12]
+
+3.Activate Receive mode on the first terminal
+
+The transciever can be set in receiving mode. Any other operation will be impossible while this mode is activated. 
+```	
+$startRx
+```
+If you need to change any parameters, you have to switch off the Rx mode using :
+```	
+$stopRx
+```
+4.Send a LoRa packet from the second terminal
+```	
+$sendTXT
+```
 
 # License
 
