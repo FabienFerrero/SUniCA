@@ -10,8 +10,8 @@ In these examples, the ATC (custom AT-COMMAND) and macro-command are demonstrate
 Two different sections are proposed in this tutorial :
 
 
- 1. [LoRaWAN ABP](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-abp-activation-by-personalization)
- 2. [LoRaWAN OTAA](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-otaa)
+ 1. [LoRaWAN ABP](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand_LoRaWAN.md#lorawan-abp-activation-by-personalization)
+ 2. [LoRaWAN OTAA](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand_LoRaWAN.md#lorawan-otaa)
 
 
 
