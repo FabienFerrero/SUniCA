@@ -185,11 +185,11 @@ The serial will propose to type your text message. Use any ASCII symbol. The cod
 
 5. The message is received on the first terminal. The first line prodive some information about the receiption signal. Your decoded text is on the second line.
 
-+EVT:RXP2P:-XX:YY:ZZ
+```	
++EVT:RXP2P:XX:YY:ZZ
+```	
 
-RSSI = -XX
-SNR = YY
-Payload = ZZ
+RSSI = XX    SNR = YY    Payload = ZZ
 
 <h1>P2P Encrypted LoRa Communication between two SUNICA boards</h1>
 
