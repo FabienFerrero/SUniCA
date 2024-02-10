@@ -74,7 +74,21 @@ ATC+AZ
 It returns the result in G unit : 
 
 * ATC+AZ=x.yy
-  
+
+4. Enable Single Tap and double Tap detection :
+```	
+ATC+TAP
+```	
+It returns Single or Double Tap if detected : 
+
+* ATC+AZ=x.yy
+
+5. Continuous read of GNSS results :
+```	
+ATC+READ=1
+```	
+It returns Single or Double Tap if detected : 
+
 # LTR303 Luminosity sensor
 
 1. Check the luminisoty value , type :
@@ -100,7 +114,7 @@ It returns the number of BLE terminal and BLE address with RSSI :
 
 2. Activate the GNSS LDO, it power-on the L76F module, type :
 ```	
-    ATC+GPSPWR=1
+ATC+GPSPWR=1
 ```	
 It returns : 
 
