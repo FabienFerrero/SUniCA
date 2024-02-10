@@ -176,10 +176,51 @@ If you need to change any parameters, you have to switch off the Rx mode using :
 ```	
 $stopRx
 ```
-4.Send a LoRa packet from the second terminal
+4.Send a LoRa packet from the second terminal using
 ```	
 $sendTXT
 ```
+
+The serial will propose to type your text message. Use any ASCII symbol. The code will convert your ASCII text into a HEX code and send it through a LoRa packet.
+
+5. The message is received on the first terminal. The first line prodive some information about the receiption signal. Your decoded text is on the second line.
+
++EVT:RXP2P:-XX:YY:ZZ
+
+RSSI = -XX
+SNR = YY
+Payload = ZZ
+
+<h1>P2P Encrypted LoRa Communication between two SUNICA boards</h1>
+
+As you understand, the actual communication can be received by any terminal which is configured with the right RF parameters. 
+In order to keep privacy, the lora packet can be encrypted using a 128bit AES key. 
+
+1. Define the encryption key
+
+The encryption key is composed with 16 bytes. The Rx must be stop before setting the key.
+   
+```	
+AT+ENCKEY=0123456789ABCDEF0123456789ABCDEF
+```
+
+The Encryption key must be only known by the tranmitter and receiver. 
+
+2. Activate the encryption on LoRa communication
+
+```	
+AT+ENCRY=1
+```	
+
+3. You can send message using 
+```	
+$sendTXT
+```
+4. In order to enable ping pong discussion between the two terminals, you can use : 
+```	
+$sendTXT&Rx
+```
+Just after sending a LoRa packet, the terminal will move to Rx mode. Once a message is received, the Rx is disabled.
 
 # License
 
