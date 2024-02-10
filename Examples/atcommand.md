@@ -15,7 +15,7 @@ In these examples, the ATC (custom AT-COMMAND) and macro-command are demonstrate
 
 *  Click on the upload button in Arduino IDE
 
-* Open Serial Monitor with 115200 baud
+* Open Serial Monitor with 115200 baud and select "Both NL & CR"
 
 * ==Warning== : Echo mode has to be disabled for this tutorial, you can use ATE command to toggle the echo mode
   
