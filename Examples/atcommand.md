@@ -7,21 +7,13 @@ Author: Fabien Ferrero, Manh Thao Nguyen, Trinh Le Huy, Xuan Minh
 
 In these examples, the ATC (custom AT-COMMAND) and macro-command are demonstrated.
 
-Three different sections are proposed in this tutorial :
-
- 1. [Sensors evaluation](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#sensors-evaluation)
- 2. [LoRaWAN ABP](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-abp-activation-by-personalization)
- 3. [LoRaWAN OTAA](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-otaa)
-
-
-
 <h1>Before starting this tutorial</h1>
 
 *  Dip Switch 2 has to be in ESP32-C3 mode to connect UART between ESP32-C3 and RAK3172
 
-*  Open in Arduini IDE [Examples/RF210_RAK3172_Lab/RF210_Lab.ino](/Examples/RF210_Lab/RF210_Lab.ino)
+*  Open in Arduini IDE [Examples/Arduino_code/RF210_Lab/RF210_Lab.ino](/Examples/Arduino_code/RF210_Lab/RF210_Lab.ino)
 
-*  Click on the upload button in Arduino IDE (for LoRaWan Example, you can update the credentials)
+*  Click on the upload button in Arduino IDE
 
 * Open Serial Monitor with 115200 baud
 
