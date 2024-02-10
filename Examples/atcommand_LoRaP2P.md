@@ -23,7 +23,7 @@ Two different sections are proposed in this tutorial :
 
 *  Dip Switch 2 has to be in ESP32-C3 mode to connect UART between ESP32-C3 and RAK3172
 
-*  Open in Arduini IDE [Examples/RF210_RAK3172_Lab/RF210_Lab.ino](/Examples/RF210_Lab/RF210_Lab.ino)
+*  Open in Arduini IDE [Examples/Arduino_code/RF210_Lab/RF210_Lab.ino](/Examples/Arduino_code/RF210_Lab/RF210_Lab.ino)
 
 *  Click on the upload button in Arduino IDE (for LoRaWan Example, you can update the credentials)
 
