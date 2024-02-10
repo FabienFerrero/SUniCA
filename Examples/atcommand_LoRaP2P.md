@@ -60,7 +60,7 @@ ZZ : Duration in second
 
 <h1>P2P FSK Modulation</h1>
 
-0. In order to set-up the FSK configuration, a simple meta-command is available. It will configure a FSK @2400bps at 868MHz
+0. In order to set-up the FSK P2P configuration, a simple meta-command is available. It will configure a FSK @600bps at 868MHz
    
 ```	
 $startFSK
@@ -75,30 +75,57 @@ XX : RF frequency in Hz (ie 865000000)
 
 
 2. Test different FSK baudrate, type :
- In order to evaluate the effect of FSK data rate on the modulation, 3 different configurations are available :  
-2400 bps :
+ In order to evaluate the effect of FSK data rate on the modulation, 3 different configurations with H index = 1 are available :  
+Send 192 bytes with 600 bps & 600Hz BW :
 
 ```            
-$$startFSK2400
+$$startFSK600
 ```       
 
-2400 bps :
+Send 192 bytes with 6000 bps & 6kHz BW :
 
 ```            
-$$startFSK2400
+$$startFSK6000
 ```     
 
-2400 bps :
+Send 192 bytes with 60000 bps & 60kHz BW :
 
 ```            
-$$startFSK2400
+$$startFSK60000
 ```          
 
 
+h1>P2P LoRa Modulation (CCS) </h1>
 
-<h1>P2P LoRa Modulation</h1>
+1. In order to set-up the LoRa P2P configuration, a simple meta-command is available. It will configure a LoRa with SF12 at 868MHz
+   
+```	
+$startLoRa
+```
+
+2. Configure your frequency
+
+```	
+AT+PFREQ=XX
+```
+XX : RF frequency in Hz (ie 865000000)
 
 
+3. Test different LoRa Bandwidth, type :
+ In order to evaluate the effect of Bandwitdth on the LoRa modulation, this command will sequentially transmit 5 lora packets with bandwidth 31.25KHz, 62.5KHz, 125KHz, 250KHz and 500KHz.
+ The 5 packets have the same Spreading Factor (SF10) and payload (helloWorld)).
+
+```            
+$testloraBW
+```    
+
+3. Test different LoRa Spreading Factor, type :
+In order to evaluate the effect of Spreading Factor on the LoRa modulation, this command will sequentially transmit 8 lora packets with Spreading Factor 5, 6, 7, 8, 9, 10, 11 and 12.
+ The 8 packets have the same Bandwidth (125KHz) and payload (helloWorld)).
+
+```            
+$testloraSF
+```      
 
 <h1>P2P LoRa Communication between two SUNICA boards</h1>
 
