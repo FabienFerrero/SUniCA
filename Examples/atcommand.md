@@ -87,7 +87,9 @@ It returns Single or Double Tap if detected :
 ```	
 ATC+READ=1
 ```	
-It returns Single or Double Tap if detected : 
+It returns 3 axis acceleration at 12Hz.
+Activate Arduino Serial Plotter to visualize a real-time plot of the accelerometer.
+The process can be stopped using any direct read of the accelerometer ( ATC+AX or ATC+AY or ATC+AZ)
 
 # LTR303 Luminosity sensor
 
