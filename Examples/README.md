@@ -32,7 +32,7 @@ Before starting Examples, the Arduino IDE and board manager should be installed 
 
 * Open Serial Monitor with 115200 baud and select "Both NL & CR"
 
-* Follow step-by-step tutorial available here : [atcommand_LoRaP2P](atcommand_loraP2P.md)
+* Follow step-by-step tutorial available here : [atcommand_LoRaP2P](atcommand_LoraP2P.md)
 
 # 3/ AT-COMMAND example to use LoRaWan
 
