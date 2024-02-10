@@ -14,8 +14,6 @@ Before starting Examples, the Arduino IDE and board manager should be installed 
 
 *  Open in Arduini IDE [Examples/Arduino_code/RF210_Lab/RF210_Lab.ino](/Examples/Arduino_code/RF210_Lab/RF210_Lab.ino)
 
-*  Click on the upload button in Arduino IDE (for LoRaWan Example, you can update the credentials)
-
 * Open Serial Monitor with 115200 baud and select "Both NL & CR"
 
 * Type AT-Command in "Message" text box.
@@ -27,8 +25,6 @@ Before starting Examples, the Arduino IDE and board manager should be installed 
 *  Test the different modulations available and P2P communication
 
 *  Open in Arduini IDE [Examples/Arduino_code/RF210_Lab/RF210_Lab.ino](/Examples/Arduino_code/RF210_Lab/RF210_Lab.ino)
-
-*  Click on the upload button in Arduino IDE (for LoRaWan Example, you can update the credentials)
 
 * Open Serial Monitor with 115200 baud and select "Both NL & CR"
 
