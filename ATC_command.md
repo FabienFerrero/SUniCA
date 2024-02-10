@@ -49,6 +49,10 @@ Additional custom AT-COMMAND are provided to access to the specific feature of S
 - ```ATC+BAT=?``` : return battery voltage in mv, 0 if not available
 - ```ATC+LDO=?``` : return LDO voltage on Rak3172 in mv, 0 if not available
 
+## LoRaWAN
+- ```ATC+SENDSENSORS``` : Send a LoRaWAN packet with Temperature, humidity, Luminosity, Accelerometer and GNSS data in Cayenne format
+
+
 
 # License
 
