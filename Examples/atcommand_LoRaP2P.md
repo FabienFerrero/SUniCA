@@ -12,9 +12,9 @@ We recommand to use RTL2832 USB dongle with CubicSDR software.
 
 Two different sections are proposed in this tutorial :
 
- 1. [Continous Wave](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-abp-activation-by-personalization)
- 2. [P2P FSK](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-abp-activation-by-personalization)
- 3. [P2P LoRa](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand.md#lorawan-otaa)
+ 1. [Continous Wave](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand_LoRaP2P.md#continuous-wave)
+ 2. [P2P FSK](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand_LoRaP2P.md#p2p-fsk-modulation)
+ 3. [P2P LoRa](https://github.com/FabienFerrero/SUniCA/blob/main/Examples/atcommand_LoRaP2P.md#p2p-fsk-modulation)
 
 
 
@@ -95,7 +95,7 @@ $$startFSK60000
 ```          
 
 
-h1>P2P LoRa Modulation (CCS) </h1>
+<h1>P2P LoRa Modulation (CCS) </h1>
 
 1. In order to set-up the LoRa P2P configuration, a simple meta-command is available. It will configure a LoRa with SF12 at 868MHz
    
