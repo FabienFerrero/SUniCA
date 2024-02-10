@@ -10,9 +10,9 @@ Before starting Examples, the Arduino IDE and board manager should be installed 
 
 # 1/ AT-COMMAND example to use SUNICA Sensors
 
-*  Dip Switch 2 has to be in ESP32-C3 mode to connect UART between ESP32-C3 and RAK3172
+*  Test the different sensor available in Sunica Terminal
 
-*  Open in Arduini IDE [Examples/RF210_RAK3172_Lab/RF210_Lab.ino](/Examples/RF210_Lab/RF210_Lab.ino)
+*  Open in Arduini IDE [Examples/Arduino_code/RF210_Lab/RF210_Lab.ino](/Examples/Arduino_code/RF210_Lab/RF210_Lab.ino)
 
 *  Click on the upload button in Arduino IDE (for LoRaWan Example, you can update the credentials)
 
@@ -24,9 +24,9 @@ Before starting Examples, the Arduino IDE and board manager should be installed 
 
 # 2/ AT-COMMAND example to use LoRa P2P communications
 
-*  Dip Switch 2 has to be in ESP32-C3 mode to connect UART between ESP32-C3 and RAK3172
+*  Test the different modulations available and P2P communication
 
-*  Open in Arduini IDE [Examples/RF210_RAK3172_Lab/RF210_Lab.ino](/Examples/RF210_Lab/RF210_Lab.ino)
+*  Open in Arduini IDE [Examples/Arduino_code/RF210_Lab/RF210_Lab.ino](/Examples/Arduino_code/RF210_Lab/RF210_Lab.ino)
 
 *  Click on the upload button in Arduino IDE (for LoRaWan Example, you can update the credentials)
 
@@ -38,9 +38,9 @@ Before starting Examples, the Arduino IDE and board manager should be installed 
 
 *  If you are not familiar with LoRaWAN, useful information is available on:   [https://www.univ-smb.fr/lorawan/en/free-book/](https://www.univ-smb.fr/lorawan/en/free-book/)
 
-*  Open in Arduini IDE [Examples/RF210_RAK3172_Lab/RF210_Lab.ino](/Examples/RF210_Lab/RF210_Lab.ino)
+*  Open in Arduini IDE [Examples/Arduino_code/RF210_Lab/RF210_Lab.ino](/Examples/Arduino_code/RF210_Lab/RF210_Lab.ino)
 
-*  Update the DevAdr, NWKkey and AppsKey credential and click on upload button in Arduino IDE
+*  Update the DevAdr, NWKkey and AppsKey credentials and click on upload button in Arduino IDE
 
 *  Click on the upload button in Arduino IDE (for LoRaWan Example, you can update the credentials)
 
