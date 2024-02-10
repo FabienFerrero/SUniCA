@@ -206,7 +206,7 @@ AT+ENCKEY=0123456789ABCDEF0123456789ABCDEF
 
 The Encryption key must be only known by the tranmitter and receiver. 
 
-2. Activate the encryption on LoRa communication
+2. Activate the encryption on LoRa communication on both terminal
 
 ```	
 AT+ENCRY=1
@@ -216,11 +216,7 @@ AT+ENCRY=1
 ```	
 $sendTXT
 ```
-4. In order to enable ping pong discussion between the two terminals, you can use : 
-```	
-$sendTXT&Rx
-```
-Just after sending a LoRa packet, the terminal will move to Rx mode. Once a message is received, the Rx is disabled.
+
 
 # License
 
