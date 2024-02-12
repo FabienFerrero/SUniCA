@@ -83,19 +83,19 @@ XX : RF frequency in Hz (ie 865000000)
 Send 192 bytes with 600 bps & 600Hz BW :
 
 ```            
-$$startFSK600
+$startFSK600
 ```       
 
 Send 192 bytes with 6000 bps & 6kHz BW :
 
 ```            
-$$startFSK6000
+$startFSK6000
 ```     
 
 Send 192 bytes with 60000 bps & 60kHz BW :
 
 ```            
-$$startFSK60000
+$startFSK60000
 ```          
 
 
