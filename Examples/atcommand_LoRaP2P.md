@@ -162,7 +162,7 @@ AT+PBW=YY
 YY : Freq. Bandwidth [0 = 125, 1 = 250, 2 = 500, 3 = 7.8, 4 = 10.4, 5 = 15.63, 6 = 20.83, 7 = 31.25, 8 = 41.67, 9 = 62.5]
 
 ```	
-AT+PSF==ZZ
+AT+PSF=ZZ
 ```
 ZZ : Spreading Factor [5;12]
 
@@ -194,7 +194,7 @@ RSSI = XX    SNR = YY    Payload = ZZ
 <h1>P2P Encrypted LoRa Communication between two SUNICA boards</h1>
 
 As you understand, the actual communication can be received by any terminal which is configured with the right RF parameters. 
-In order to keep privacy, the lora packet can be encrypted using a 128bit AES key. 
+To keep privacy, the lora packet can be encrypted using a 128bit AES key. 
 
 1. Define the encryption key
 
@@ -216,6 +216,11 @@ AT+ENCRY=1
 ```	
 $sendTXT
 ```
+4. You can desactivate the encryption on LoRa communication on both terminal
+
+```	
+AT+ENCRY=0
+```	
 
 
 # License
