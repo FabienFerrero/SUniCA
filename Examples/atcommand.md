@@ -83,9 +83,9 @@ It returns Single or Double Tap if detected :
 
 * ATC+AZ=x.yy
 
-5. Continuous read of GNSS results :
+5. Continuous read of Accelerometer results :
 ```	
-ATC+READ=1
+ATC+ACC_READ
 ```	
 It returns 3 axis acceleration at 12Hz.
 Activate Arduino Serial Plotter to visualize a real-time plot of the accelerometer.
