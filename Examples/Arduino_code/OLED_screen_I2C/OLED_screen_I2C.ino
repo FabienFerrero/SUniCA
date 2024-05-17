@@ -54,10 +54,11 @@ void setup()
     display.begin();
     display.fill(0x00);
     display.setFixedFont(ssd1306xled_font6x8);
-    display.printFixed (0,  8, "Line 1. Normal text", STYLE_NORMAL);
-    display.printFixed (0, 16, "Line 2. Bold text", STYLE_BOLD);
-    display.printFixed (0, 24, "Line 3. Italic text", STYLE_ITALIC);
-    display.printFixedN (0, 32, "Line 4. Double size", STYLE_BOLD, FONT_SIZE_2X);
+    //display.printFixed (0,  8, "Line 1. Normal text", STYLE_NORMAL);
+    //display.printFixed (0, 16, "Line 2. Bold text", STYLE_BOLD);
+    //display.printFixed (0, 24, "Line 3. Italic text", STYLE_ITALIC);
+    display.printFixedN (0, 16, "Vitesse actuelle :", STYLE_BOLD, FONT_SIZE_2X);
+    display.printFixedN (0, 32, "100 KM/H", STYLE_BOLD, FONT_SIZE_2X);
 }
 
 
